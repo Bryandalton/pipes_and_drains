@@ -1,3 +1,4 @@
+import unittest
 # * ╣   ╔ ═ A
 #   ╠ ═ ╝    
 #   C   ╚ ═ B
@@ -24,6 +25,10 @@
 #there are also 4 T shaped pipes
 #any letter A - Z are possible also all letters connect to adjoining letters
 #
+
+def simp_add (n,i):
+    return n + i
+
 def find_source( symbol, x, y):
     if symbol == 'ast':
         source = (x,y)
@@ -35,3 +40,13 @@ def find_connection(symbol, x, y):
 def find_sink(symbol, connection):
     if symbol is str & connection:
         return symbol
+
+
+class TestMathOperations(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(simp_add(1, 2), 3)
+        self.assertEqual(simp_add(-1, 1), 0)
+        self.assertEqual(simp_add(-1, -1), 3, "Adding negative number should return negative result")
+
+if __name__ == '__main__':
+    unittest.main()
