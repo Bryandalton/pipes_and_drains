@@ -12,11 +12,11 @@ symbols = {
     "╣": "T_RIGHT",
 }
 
-piece = {
-    "piece": 'SOURCE',
-    "x": 0,
-    "y": 0
-}
+# piece = {
+#     "piece": 'SOURCE',
+#     "x": 0,
+#     "y": 0
+# }
 
 
 def get_symbol(str):
@@ -30,6 +30,8 @@ def read_file(arg):
     pipes = []
     with open(arg, 'r', encoding='utf-8') as file:
         for line in file:
+            if line.strip() == '':
+                continue
             pipes.append(parse_line(line.strip()))
 
     return pipes
