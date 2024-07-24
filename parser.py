@@ -42,7 +42,7 @@ def parse_line(txt):
     parsed_array = txt.split(' ')
     new_piece = {
         "piece": get_symbol(parsed_array[0]),
-        'x': parsed_array[1],
-        'y': parsed_array[2]
+        'x': int(parsed_array[1]),
+        'y': int(parsed_array[2])
     }
     return new_piece
