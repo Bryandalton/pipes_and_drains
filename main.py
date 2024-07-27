@@ -6,14 +6,22 @@ def handle_blank():
 
 
 
+def create_maze(loose_pipes):
+    grid_size = determine_grid_size(loose_pipes)
 
+    for col in range(grid_size[0]):
+        for row in range(grid_size[1]):
+            print(col, row)
+
+
+
+    # print(loose_pipes)
+    pass
 
 def main():
     file_path = sys.argv[1]
     loose_pipes = read_file(file_path)
-    grid_size = determine_grid_size(loose_pipes)
-    print (grid_size)
-    # print(loose_pipes)
+    create_maze(loose_pipes)
 
 def determine_grid_size(loose_pipes):
     # print(loose_pipes)

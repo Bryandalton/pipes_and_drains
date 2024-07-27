@@ -20,10 +20,11 @@ symbols = {
 
 
 def get_symbol(str):
-    if str in symbols:
-        return symbols[str]
-    else:
-        return str
+    return str
+    # if str in symbols:
+    #     return symbols[str]
+    # else:
+    #     return str
 
 
 def read_file(arg):
