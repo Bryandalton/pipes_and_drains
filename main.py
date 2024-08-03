@@ -9,6 +9,14 @@ import sys
 #   ╠ ═ ╝
 #   C   ╚ ═ B
 
+def main():
+    file_path = sys.argv[1]
+    loose_pipes = read_file(file_path)
+    # maze_array = create_maze_array(loose_pipes)
+    # show_maze = create_maze_matrix(loose_pipes)
+    maze = corrected_maze_matrix(loose_pipes)
+    for row in maze:
+        print(row)
 
 def find_pipe_at_pos(loose_pipes, col, row):
     for pipe in loose_pipes:
@@ -30,21 +38,15 @@ def create_maze_array(loose_pipes):
 
 
 def corrected_maze_matrix(loose_pipes):
-   unaligned_maze = print_maze(loose_pipes)
+   unaligned_maze = create_maze_matrix(loose_pipes)
+#    print(unaligned_maze)
    aligned_maze = []
    for row in unaligned_maze[::-1]:
        aligned_maze.append(row)
    return aligned_maze
        
-    
-   
-       
 
-
-
-#breaks every 3 items into their own arrays
-#would be correct if rotated -90deg
-def print_maze(loose_pipes):
+def create_maze_matrix(loose_pipes):
     maze_matrix = []
     maze_array = create_maze_array(loose_pipes)
     start = 0
@@ -55,19 +57,6 @@ def print_maze(loose_pipes):
         maze_matrix.append(maze_array[x:x+step])
 
     return maze_matrix
-
-
-def main():
-    file_path = sys.argv[1]
-    loose_pipes = read_file(file_path)
-    # maze_array = create_maze_array(loose_pipes)
-    show_maze = print_maze(loose_pipes)
-    maze = corrected_maze_matrix(loose_pipes)
-    for row in maze:
-        print(row)
-
-
-
 
 
 def determine_grid_size(loose_pipes):
