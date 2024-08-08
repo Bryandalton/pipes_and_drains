@@ -1,5 +1,5 @@
-from parser import read_file
-from printer import print_maze
+from scripts.parser import read_file
+from scripts.printer import print_maze
 import sys
 
 #move print function and dependencies to own file and call into main
