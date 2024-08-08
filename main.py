@@ -1,9 +1,11 @@
 from parser import read_file
+from printer import print_maze
 import sys
 
-# make prettified maze array
-# line break at max(x)
-# every 3rd item is a new column
+#move print function and dependencies to own file and call into main
+#make a scripts folder for parser and printer
+
+
 # looks like this:
 # * ╣   ╔ ═ A
 #   ╠ ═ ╝
@@ -25,7 +27,7 @@ def main():
     print_maze(maze_array, grid_size) 
 
 
-## Make a flat representation of the maze
+# Make a flat representation of the maze
 def create_maze_array(loose_pipes, grid_size):
     maze = []
     for row in range(grid_size[1]):
@@ -51,36 +53,8 @@ def determine_grid_size(loose_pipes):
         yvals.append(i.get('y') + 1)
 
     return (max(xvals), max(yvals))
-# take the flat maze, and turn it into a 2d matrix
-# but its backwards!
-def create_maze_matrix(maze_array, grid_size):
-    maze_matrix = []
-    start = 0
-    end = len(maze_array)
-    # print(grid_size[0])
-    step = grid_size[0]
-    for i in range(start, end, step):
-        x = i
-        maze_matrix.append(maze_array[x:x+step])
-
-    return maze_matrix
 
 
-def print_maze(maze_array, grid_size):
-    # convert it into a matrix so we can print it
-    maze_matrix = create_maze_matrix(maze_array, grid_size)
-    
-    aligned_mazed = correct_maze_matrix(maze_matrix)
-    for row in aligned_mazed:
-        print(' '.join(row))
-
-# reverse the rows of the maze for better printing
-def correct_maze_matrix(unaligned_maze):
-   aligned_maze = []
-   for row in unaligned_maze[::-1]:
-       aligned_maze.append(row)
-   return aligned_maze
-       
 
 if __name__ == "__main__":
     main()
