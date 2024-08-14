@@ -1,8 +1,11 @@
 import unittest
 import sys
+from grid import find_source, find_left_of_index
 # * ╣   ╔ ═ A
 #   ╠ ═ ╝    
 #   C   ╚ ═ B
+
+
 
 #coord map x:y
 # * 0 2
@@ -42,33 +45,20 @@ import sys
 # create the grid starting with y = 0 and looping through all x values
 #the increment y and repeat loop until y = input[length -1]
 
-print(sys.argv)
 
-def create_grid():
-    maze: dict[str, tuple[int,int]] = {}
-    pass
+class TestMathOperations(unittest.TestCase):
+    def test_find_source(self):
+        self.assertEqual(find_source([]),-1,"When given empty list should not find a source")
+        self.assertEqual(find_source(['*']), 0 ,"When given a list should find a source")
+        self.assertEqual(find_source(['A','B','*']),2,"When given a list should find a source")
+    
+    def test_find_left_of_index(self):
+        self.assertEqual(find_left_of_index(0, 1), -1 ,"identifies if nothing left of index")
+        self.assertEqual(find_left_of_index(1, 2), 0 ,"returns value left of *")
+        self.assertEqual(find_left_of_index(0, 2), -1 ,"identifies if nothing left of source")
 
-def simp_add (n,i):
-    return n + i
+        self.assertEqual(find_left_of_index(1, 1), -1 ,"returns value left of single column")
 
-def find_source( symbol, x, y):
-    if symbol == 'ast':
-        source = (x,y)
-    return source
-
-def find_connection(symbol, x, y):
-    pass
-
-def find_sink(symbol, connection):
-    if symbol is str & connection:
-        return symbol
-
-
-# class TestMathOperations(unittest.TestCase):
-#     def test_add(self):
-#         self.assertEqual(simp_add(1, 2), 3)
-#         self.assertEqual(simp_add(-1, 1), 0)
-#         self.assertEqual(simp_add(-1, -1), 3, "Adding negative number should return negative result")
-
-# if __name__ == '__main__':
-#     unittest.main()
+        
+if __name__ == '__main__':
+    unittest.main()

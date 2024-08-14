@@ -2,8 +2,10 @@ from scripts.parser import read_file
 from scripts.printer import print_maze
 import sys
 
-#move print function and dependencies to own file and call into main
-#make a scripts folder for parser and printer
+#write a function that says get the 'thing' to the left of the source
+
+#ask chad gpt  " simulating a 2D array in a 1D array. "
+#and methods to find an index relative to another
 
 
 # looks like this:
@@ -23,8 +25,16 @@ def main():
     # assembled maze from pipes
     maze_array = create_maze_array(loose_pipes, grid_size)
 
+    drains = identify_drains(maze_array, grid_size)
+
+    print(maze_array)
+
     # print it
     print_maze(maze_array, grid_size) 
+
+
+def identify_drains(maze_array, grid_size):
+    return []
 
 
 # Make a flat representation of the maze
