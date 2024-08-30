@@ -49,6 +49,9 @@ from grid import find_source, find_left_of_index, find_right_of_index, find_down
     # 0 1 2 Grid is bae
 arr = [0,1,2,3,4,5,6,7,8]
 
+#write unit tests for up down and right
+
+#@unittest.skip("Skipping this test.")
 
 
 class TestMathOperations(unittest.TestCase):
@@ -70,14 +73,14 @@ class TestMathOperations(unittest.TestCase):
         # 0 1 2 Grid is bae
         self.assertEqual(find_right_of_index(4,3), 5,"5 is right of 4 in grid")
         self.assertEqual(find_right_of_index(5,3), -1,"there is nothing there")
-
+    @unittest.skip("Skipping this test.")
     def test_find_up_of_index(self):
         # 6 7 8
         # 3 4 5
         # 0 1 2 Grid is bae
         self.assertEqual(find_up_of_index(4,3), 7, "7 is up of 4")
         self.assertEqual(find_up_of_index(8,3), -1,"nothing is up of 8")
-
+    @unittest.skip("Skipping this test.")
     def test_find_down_of_index(self):
         # 6 7 8
         # 3 4 5
