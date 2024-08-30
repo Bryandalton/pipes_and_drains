@@ -1,10 +1,9 @@
 import unittest
 import sys
-from grid import find_source, find_left_of_index
+from grid import find_source, find_left_of_index, find_right_of_index, find_down_of_index, find_up_of_index
 # * ╣   ╔ ═ A
 #   ╠ ═ ╝    
 #   C   ╚ ═ B
-
 
 
 #coord map x:y
@@ -45,6 +44,12 @@ from grid import find_source, find_left_of_index
 # create the grid starting with y = 0 and looping through all x values
 #the increment y and repeat loop until y = input[length -1]
 
+    # 6 7 8
+    # 3 4 5
+    # 0 1 2 Grid is bae
+arr = [0,1,2,3,4,5,6,7,8]
+
+
 
 class TestMathOperations(unittest.TestCase):
     def test_find_source(self):
@@ -59,6 +64,28 @@ class TestMathOperations(unittest.TestCase):
 
         self.assertEqual(find_left_of_index(1, 1), -1 ,"returns value left of single column")
 
-        
+    def test_find_right_of_index(self):
+        # 6 7 8
+        # 3 4 5
+        # 0 1 2 Grid is bae
+        self.assertEqual(find_right_of_index(4,3), 5,"5 is right of 4 in grid")
+        self.assertEqual(find_right_of_index(5,3), -1,"there is nothing there")
+
+    def test_find_up_of_index(self):
+        # 6 7 8
+        # 3 4 5
+        # 0 1 2 Grid is bae
+        self.assertEqual(find_up_of_index(4,3), 7, "7 is up of 4")
+        self.assertEqual(find_up_of_index(8,3), -1,"nothing is up of 8")
+
+    def test_find_down_of_index(self):
+        # 6 7 8
+        # 3 4 5
+        # 0 1 2 Grid is bae
+        self.assertEqual(find_up_of_index(4,3), 1, "1 is down of 4")
+        self.assertEqual(find_up_of_index(0,3), -1, "nothing is down of 0")
+
+
+
 if __name__ == '__main__':
     unittest.main()
